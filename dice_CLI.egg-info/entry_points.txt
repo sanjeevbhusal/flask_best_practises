@@ -1,0 +1,3 @@
+[console_scripts]
+dice = cli.cli:cli
+
