@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_app.blueprints import page
+from flask_app.extensions import debug_toolbar
 
 
 def create_app(settings_override=None):
@@ -11,7 +12,12 @@ def create_app(settings_override=None):
         app.config.update(settings_override)
 
     app.register_blueprint(page)
+    extensions(app)
     return app
+
+
+def extensions(app):
+    debug_toolbar.init_app(app)
 
 
 if __name__ == '__main__':
